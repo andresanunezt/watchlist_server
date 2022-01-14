@@ -60,6 +60,13 @@ app.put("/shows/:id", async(req, res) => {
     res.send("Updated")
 })
 
+app.delete("/shows/:id", async(req, res) => {
+
+    await Show.destroy(req.body,
+       {where: { id: req.params.id}})
+       res.send("destroyed!!!")
+   })
+
 
 app.get("/:genre", async(req, res) => {
     const shows = await Show.findAll({
