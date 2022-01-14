@@ -1,0 +1,15 @@
+{"shows": [
+
+        {"title": "title1","rating": 1,"genre": "thriller", "watch_status": false},
+        {"title": "title2","rating": 2,"genre": "horror", "watch_status": false},
+        {"title": "title3","rating": 3,"genre": "drama", "watch_status": false},
+        {"title": "title4","rating": 4,"genre": "horror", "watch_status": true},
+        {"title": "title5","rating": 5,"genre": "romance", "watch_status": false},
+        {"title": "title6","rating": 5,"genre": "drama", "watch_status": false},
+        {"title": "title7","rating": 4,"genre": "horror", "watch_status": false},
+        {"title": "title8","rating": 3,"genre": "comedy", "watch_status": true},
+        {"title": "title9","rating": 2,"genre": "comedy", "watch_status": false},
+        {"title": "Derry Girls","rating": 5,"genre": "comedy", "watch_status": true}
+]
+
+}
