@@ -13,7 +13,6 @@ app.listen(PORT, async() => {
     console.log(`Servers up and running at http://localhost:${PORT}`)
 })
 
-
 app.get("/users", async(req, res) => {
     const users = await User.findAll()
     res.json(users)
@@ -44,13 +43,11 @@ app.put("/users/:id", async(req, res) => {
        res.send("Updated")
    })
 
-   app.delete("/users/:id", async(req, res) => {
+app.delete("/users/:id", async(req, res) => {
 
     await User.destroy(
        {where: { id: req.params.id}})
-
-
-       })
+})
       
 
 app.get("/shows", async(req, res) => {
@@ -58,26 +55,18 @@ app.get("/shows", async(req, res) => {
     res.json(users)
 })
 
-
 app.get('/users/:userid/shows/:showid', async (req, res) => {
    const show =  await Show.findAll( 
-        
             {where:{id: req.params.showid, UserId: req.params.userid}
     })
-
     res.json(show)
-
 })
-
-
 
 app.put('/users/:userid/shows/:showid', async (req, res) => {
     await Show.update(req.body, 
         {
             where:{id: req.params.showid, UserId: req.params.userid}
     })
-        
-    
     res.send("Updated Show!")
 })
 
@@ -104,7 +93,6 @@ app.delete("/shows/:id", async(req, res) => {
        {where: { id: req.params.id}})
        res.send("destroyed!!!")
    })
-
 
 app.get("/:genre", async(req, res) => {
     const shows = await Show.findAll({
