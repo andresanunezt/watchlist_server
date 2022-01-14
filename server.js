@@ -37,11 +37,49 @@ app.post("/users", async(req, res) => {
     res.json(user)
 })
 
+app.put("/users/:id", async(req, res) => {
+
+    await User.update(req.body,
+       {where: { id: req.params.id}})
+       res.send("Updated")
+   })
+
+   app.delete("/users/:id", async(req, res) => {
+
+    await User.destroy(
+       {where: { id: req.params.id}})
+
+
+       })
+      
+
 app.get("/shows", async(req, res) => {
     const users = await Show.findAll()
     res.json(users)
 })
 
+
+app.get('/users/:userid/shows/:showid', async (req, res) => {
+   const show =  await Show.findAll( 
+        
+            {where:{id: req.params.showid, UserId: req.params.userid}
+    })
+
+    res.json(show)
+
+})
+
+
+
+app.put('/users/:userid/shows/:showid', async (req, res) => {
+    await Show.update(req.body, 
+        {
+            where:{id: req.params.showid, UserId: req.params.userid}
+    })
+        
+    
+    res.send("Updated Show!")
+})
 
 app.get("/shows/:id", async(req, res) => {
     const show = await Show.findByPk(req.params.id, {include: User})
@@ -62,7 +100,7 @@ app.put("/shows/:id", async(req, res) => {
 
 app.delete("/shows/:id", async(req, res) => {
 
-    await Show.destroy(req.body,
+    await Show.destroy(
        {where: { id: req.params.id}})
        res.send("destroyed!!!")
    })
